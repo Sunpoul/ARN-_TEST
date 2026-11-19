@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#073a47">
+  <meta name="description" content="Проекты, команда и мероприятия Агентства развития Норильска.">
+  <title>Агентство развития Норильска — Визионеры Арктики</title>
+  <link rel="icon" href="assets/2afd9.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="site.css">
+  <link rel="preload" as="image" href="assets/hero-panorama.png">
+  <script>
+    if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
+      history.scrollRestoration = 'manual';
+      if (location.hash) history.replaceState(history.state, '', location.href.split('#')[0]);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+    document.documentElement.classList.add('booting');
+    setTimeout(() => document.documentElement.classList.remove('booting'), 2400);
+  </script>
+  <script defer src="vendor/gsap.min.js"></script>
+  <script defer src="vendor/ScrollTrigger.min.js"></script>
+  <script defer src="vendor/ScrollSmoother.min.js"></script>
+  <script defer src="vendor/ScrambleTextPlugin.min.js"></script>
+  <script defer src="scroll-motion.js"></script>
+  <script defer src="site.js"></script>
+</head>
+<body>
+  <!-- Phosphor Icons 2.1.1 • MIT, see vendor/phosphor-LICENSE -->
+  <svg class="icon-sprite" width="0" height="0" aria-hidden="true">
+    <symbol id="ph-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
+    <symbol id="ph-arrow-up-right" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
+    <symbol id="ph-caret-down" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
+    <symbol id="ph-caret-left" viewBox="0 0 256 256"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></symbol>
+    <symbol id="ph-caret-right" viewBox="0 0 256 256"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></symbol>
+    <symbol id="ph-list" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></symbol>
+    <symbol id="ph-magnifying-glass" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></symbol>
+    <symbol id="ph-map-pin" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></symbol>
+    <symbol id="ph-moon" viewBox="0 0 256 256"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"/></symbol>
+    <symbol id="ph-play-fill" viewBox="0 0 256 256"><path d="M240,128a15.74,15.74,0,0,1-7.6,13.51L88.32,229.65a16,16,0,0,1-16.2.3A15.86,15.86,0,0,1,64,216.13V39.87a15.86,15.86,0,0,1,8.12-13.82,16,16,0,0,1,16.2.3L232.4,114.49A15.74,15.74,0,0,1,240,128Z"/></symbol>
+    <symbol id="ph-sun" viewBox="0 0 256 256"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"/></symbol>
+    <symbol id="ph-x" viewBox="0 0 256 256"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main">К содержанию</a>
+  <div class="loader" aria-hidden="true">
+    <div class="loader-top"><img src="assets/e3f8c.svg" alt=""><span class="mono">69°20′ С. Ш. · 88°13′ В. Д.</span></div>
+    <div class="loader-title">Норильск</div>
+    <div class="loader-bottom"><span class="mono">Агентство развития Норильска</span><span class="loader-line"></span><span class="loader-count mono">00</span></div>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#top" aria-label="АРН — на главную">
+      <img src="assets/2afd9.svg" alt=""><img class="wordmark" src="assets/b36ee.svg" alt="">
+      <span>Агентство<br>развития<br>Норильска</span>
+    </a>
+    <nav class="primary-nav" id="primary-nav" aria-label="Основное меню">
+      <a class="nav-feature" href="#directions" data-open-directions aria-haspopup="dialog" aria-controls="directions-dialog">Направления <svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-down"></use></svg></a>
+      <a href="#projects">Проекты</a>
+      <a href="#about">О нас</a>
+      <a href="#events">Новости и мероприятия</a>
+      <a href="https://arnorilsk.ru/materialyi/">Отчёты и документы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <button class="header-icon menu-button" type="button" aria-label="Меню" aria-expanded="false" aria-controls="primary-nav"><svg class="ui-icon menu-list" aria-hidden="true"><use href="#ph-list"></use></svg><svg class="ui-icon menu-close" aria-hidden="true"><use href="#ph-x"></use></svg></button>
+      <button class="header-icon theme-button" type="button" aria-label="Тёмная тема" aria-pressed="false"><svg class="ui-icon theme-moon" aria-hidden="true"><use href="#ph-moon"></use></svg><svg class="ui-icon theme-sun" aria-hidden="true"><use href="#ph-sun"></use></svg></button>
+      <button class="header-icon search-open" type="button" aria-label="Поиск по сайту" aria-haspopup="dialog" aria-controls="search-dialog"><svg class="ui-icon" aria-hidden="true"><use href="#ph-magnifying-glass"></use></svg></button>
+      <a class="header-idea" href="#idea">Предложить идею</a>
+    </div>
+  </header>
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="main">
+        <section class="hero" id="top" aria-labelledby="hero-title" data-search="Раздел" data-node-id="2275:8945">
+          <div class="hero-backdrop" aria-hidden="true">
+            <img class="hero-background" src="assets/hero-background.svg" alt="" fetchpriority="high">
+          </div>
+          <div class="hero-copy">
+            <p class="hero-coords mono" data-coordinate-count>Норильск · <span class="visually-hidden">69°20′ с. ш. · 88°13′ в. д.</span><span aria-hidden="true"><span data-coordinate-value>69</span>°<span data-coordinate-value>20</span>′ с. ш. · <span data-coordinate-value>88</span>°<span data-coordinate-value>13</span>′ в. д.</span> · <span data-number-fade>2016—2026</span></p>
+            <div class="hero-content">
+              <p class="mono hero-kicker">Визионеры Арктики</p>
+              <h1 id="hero-title">
+                <span><span>Агентство</span></span>
+                <span><span>развития</span></span>
+                <span><span>Норильска</span></span>
+              </h1>
+              <p class="hero-description">Развиваем общественные пространства, поддерживаем местный бизнес и запускаем городские проекты</p>
+              <a class="button outline hero-button" href="#projects">Посмотреть проекты</a>
+            </div>
+            <a class="hero-about mono" href="#about">Об агентстве</a>
+          </div>
+          <figure class="hero-photo" id="hero-viewer">
+            <img src="assets/hero-panorama.png" alt="Панорама центра Норильска" fetchpriority="high">
+            <img class="hero-photo-night" src="assets/hero-panorama-night.png" alt="" decoding="async">
+          </figure>
+          <div class="hero-play-slot">
+            <button class="hero-play" type="button" aria-label="Открыть фотографию на весь экран" aria-expanded="false" aria-controls="hero-viewer" hidden>
+              <svg class="ui-icon hero-play-glyph" aria-hidden="true"><use href="#ph-play-fill"></use></svg>
+              <span class="hero-close-label mono" aria-hidden="true">Закрыть</span>
+              <svg class="ui-icon hero-close-glyph" aria-hidden="true"><use href="#ph-x"></use></svg>
+            </button>
+          </div>
+        </section>
+
+        <div class="ticker" aria-label="Из афиши">
+          <div class="ticker-track" data-motion-track>
+            <a href="#event-diagnostics">20 марта — Диагностика и ускорение бизнес-проектов</a>
+            <a href="#event-sun">12 февраля — Солнце 0202: три весны в Норильске</a>
+            <a href="#event-law">22 января — «Юридические аспекты бизнеса»</a>
+            <a aria-hidden="true" tabindex="-1" href="#event-diagnostics">20 марта — Диагностика и ускорение бизнес-проектов</a>
+            <a aria-hidden="true" tabindex="-1" href="#event-sun">12 февраля — Солнце 0202: три весны в Норильске</a>
+          </div>
+        </div>
+
+        <section class="about wrap" id="about" data-search="Об агентстве" aria-labelledby="about-title" data-node-id="2275:8961">
+          <div class="stats">
+            <article class="stat" data-reveal><div class="stat-top"><p class="mono">01</p><a href="#projects" aria-label="Смотреть реализованные проекты"><span class="stat-action">Смотреть <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></span></a></div><div><p class="stat-number" data-number-fade>200+</p><p>Реализованных проектов</p></div></article>
+            <article class="stat" data-reveal><div class="stat-top"><p class="mono">02</p><a href="#skate" aria-label="Смотреть общественные пространства"><span class="stat-action">Смотреть <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></span></a></div><div><p class="stat-number" data-number-fade>117</p><p>Общественных пространств</p></div></article>
+            <article class="stat" data-reveal><div class="stat-top"><p class="mono">03</p><a href="#directions-education" aria-label="Смотреть образовательные программы"><span class="stat-action">Смотреть <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></span></a></div><div><p class="stat-number" data-number-fade>54</p><p>Образовательные программы</p></div></article>
+            <article class="stat" data-reveal><div class="stat-top"><p class="mono">04</p><a href="#directions-city" aria-label="Смотреть инфраструктурные проекты"><span class="stat-action">Смотреть <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></span></a></div><div><p class="stat-number" data-number-fade>80</p><p>Инфраструктурных проектов</p></div></article>
+          </div>
+          <div class="mission">
+            <h2 id="about-title" data-reveal>Создаём комфортную среду для жизни и отдыха в Норильске</h2>
+            <img src="assets/ce052.svg" alt="" data-reveal>
+            <p data-reveal>С 2016 года мы создаём новые стандарты формирования комфортной городской среды, отвечая на актуальные запросы общества и уважая традиции. Объединяем усилия жителей, власти и бизнеса, чтобы превращать идеи в реальные изменения.</p>
+            <a class="button outline" data-reveal href="https://arnorilsk.ru/ob-agentstve/">Подробнее об агентстве</a>
+          </div>
+        </section>
+
+        <section class="timeline" id="skate" data-year="2025" aria-label="Хронология городских проектов" data-search="Хронология" data-search-title="Скейт-парк" data-search-extra="Молодёжный центр 2025 обновление площадки">
+          <div class="media-layer" data-parallax><img class="timeline-photo" src="assets/a8d0e.png" alt="Скейт-парк у Молодёжного центра Норильска"></div>
+          <div class="timeline-grid" aria-hidden="true"><span></span></div>
+          <div class="timeline-coords" data-coordinate-count aria-hidden="true"><span><span data-coordinate-value>69</span>°<span data-coordinate-value>20</span>′<small>С. Ш.</small></span><span><span data-coordinate-value>88</span>°<span data-coordinate-value>13</span>′<small>В. Д.</small></span></div>
+          <div class="timeline-card" data-reveal aria-live="polite">
+            <p class="mono timeline-kicker">Обновление · 2025</p>
+            <h2 class="timeline-title">Скейт-парк</h2>
+            <p class="timeline-summary">В 2025 году АРН обновило скейт-парк у Молодёжного центра. Площадку отреставрировали и оформили в цветах городского бренда Норильска.</p>
+            <a class="button outline timeline-link" href="https://news.sgnorilsk.ru/2025/08/11/v-norilske-proshel-festival-aktivnyh-vidov-sporta/">Подробнее о проекте</a>
+          </div>
+          <div class="timeline-controls">
+            <p class="mono">Хронология · листайте годы</p>
+            <div class="year-buttons" aria-label="Год">
+              <button type="button" data-year="2016" aria-pressed="false">2016</button>
+              <button type="button" data-year="2018" aria-pressed="false">2018</button>
+              <button type="button" data-year="2020" aria-pressed="false">2020</button>
+              <button type="button" data-year="2025" aria-pressed="true">2025</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="team wrap" id="team" aria-labelledby="team-title" data-search="Раздел" data-node-id="2275:9020">
+          <h2 class="section-title" id="team-title" data-reveal>Команда</h2>
+          <div class="team-grid" id="team-grid">
+            <article class="team-card is-current" id="maxim-mironov" data-search="Команда" data-reveal>
+              <div class="portrait"><img src="assets/14738.png" alt="Максим Миронов" loading="lazy" width="800" height="1000"></div>
+              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Максим Миронов<svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button></h3><p class="mono">Директор АРН</p>
+            </article>
+            <article class="team-card" id="yulia-gribanova" data-search="Команда" data-reveal>
+              <div class="portrait"><img src="assets/9a012.png" alt="Юлия Грибанова" loading="lazy" width="800" height="1000"></div>
+              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Юлия Грибанова<svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button></h3><p class="mono">Заместитель директора по инвестициям</p>
+            </article>
+            <article class="team-card" id="roman-kulyan" data-search="Команда" data-reveal>
+              <div class="portrait"><img src="assets/415b7.png" alt="Роман Кулян" loading="lazy" width="800" height="1000"></div>
+              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Роман Кулян<svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button></h3><p class="mono">Первый заместитель директора АРН</p>
+            </article>
+            <article class="team-card" id="viktoria-chulanova" data-search="Команда" data-reveal>
+              <div class="portrait"><img src="assets/c06c7.png" alt="Виктория Чуланова" loading="lazy" width="800" height="1000"></div>
+              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Виктория Чуланова<svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button></h3><p class="mono">Заместитель директора</p>
+            </article>
+          </div>
+          <div class="pager" aria-label="Просмотр команды" data-pager="team">
+            <button class="icon-button" type="button" data-step="-1" aria-label="Предыдущий сотрудник"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-left"></use></svg></button>
+            <button class="icon-button" type="button" data-step="1" aria-label="Следующий сотрудник"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-right"></use></svg></button>
+            <output class="mono">01 / 04</output>
+          </div>
+        </section>
+
+        <section class="projects wrap section-space" id="projects" aria-labelledby="projects-title" data-search="Раздел" data-node-id="2275:9034">
+          <div class="section-head" data-reveal><h2 class="section-title" id="projects-title">Проекты</h2><a class="icon-button" href="https://arnorilsk.ru/proektyi/" aria-label="Каталог проектов АРН"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></a></div>
+          <div id="directions" class="direction-tabs" data-search="Направления" data-search-title="Направления проектов" role="tablist" aria-label="Направления проектов">
+            <button type="button" role="tab" id="directions-education" aria-controls="direction-panel" aria-selected="true" data-direction="education"><span class="mono">01</span>Обучение и команды</button>
+            <button type="button" role="tab" id="directions-culture" aria-controls="direction-panel" aria-selected="false" tabindex="-1" data-direction="culture"><span class="mono">02</span>События и культура</button>
+            <button type="button" role="tab" id="directions-city" aria-controls="direction-panel" aria-selected="false" tabindex="-1" data-direction="city"><span class="mono">03</span>Развитие инфраструктуры</button>
+            <button type="button" role="tab" id="directions-strategy" aria-controls="direction-panel" aria-selected="false" tabindex="-1" data-direction="strategy"><span class="mono">04</span>Планы и стратегии</button>
+          </div>
+          <div class="direction-panel" id="direction-panel" role="tabpanel" aria-labelledby="directions-education">
+            <figure class="direction-photo"><img src="assets/53513.png" alt="Участники образовательной программы АРН" loading="lazy"><span data-number-fade aria-hidden="true">2026</span></figure>
+            <div class="direction-content">
+              <p class="direction-kicker mono">С 2020 года</p>
+              <h3>Обучение и команды</h3>
+              <p class="direction-description">Программа «Обучение городских команд и развитие сервисов»</p>
+              <ol>
+                <li>Обучаем предпринимательству школьников, студентов и начинающих бизнесменов</li>
+                <li>Оказываем экспертную помощь действующим компаниям</li>
+                <li>Готовим специалистов и помогаем каждому раскрыть свой потенциал</li>
+                <li>Создаём условия для роста бизнеса, развиваем сервисные и инфраструктурные решения</li>
+              </ol>
+              <a class="button outline" href="https://arnorilsk.ru/obuchenie-i-komandyi/">Подробнее</a>
+            </div>
+          </div>
+          <div class="project-list">
+            <article class="project-row" id="business-accelerator" data-project="accelerator" data-category="education" data-search="Проекты" data-search-extra="предпринимательство развитие бизнеса" data-reveal>
+              <a href="https://arnorilsk.ru/obuchenie-i-komandyi/"><div><h3>Бизнес-акселерация</h3><p class="mono">Обучение и команды · Бизнес и инвестиции</p></div><span class="icon-button"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></span></a>
+            </article>
+            <article class="project-row" id="business-navigator" data-project="navigator" data-category="education" data-search="Проекты" data-search-extra="форум бизнес предприниматели" data-reveal>
+              <a href="https://arnorilsk.ru/obuchenie-i-komandyi/"><div><h3>Бизнес-навигатор</h3><p class="mono">Обучение и команды · Туризм</p></div><span class="icon-button"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></span></a>
+            </article>
+            <article class="project-row" id="new-names" data-project="names" data-category="culture" data-search="Проекты" data-search-extra="конкурс юные музыканты художники" data-reveal>
+              <a href="https://arnorilsk.ru/novosti-i-anonsyi/novosti/novyie-imena-v-norilske-kak-proshel-shestoj-konkurs-yunyix-talantov/"><div><h3>Новые имена</h3><p class="mono">События и культура · Образование</p></div><span class="icon-button"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></span></a>
+            </article>
+            <article class="project-row" id="discover-taimyr" data-project="taimyr" data-category="strategy" data-search="Проекты" data-search-extra="Таймыр туризм путешествия цифровая платформа" data-reveal>
+              <a href="https://discover-taimyr.ru/"><div><h3>Discover Taimyr</h3><p class="mono">Планы и стратегии · Туризм</p></div><span class="icon-button"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></span></a>
+            </article>
+            <figure class="project-peek" aria-hidden="true">
+              <img data-project-photo="accelerator" src="assets/618b2.png" alt="" loading="lazy">
+              <img data-project-photo="navigator" src="assets/2b190.png" alt="" loading="lazy">
+              <img data-project-photo="names" src="assets/project-new-names.jpg" alt="" loading="lazy">
+              <img data-project-photo="taimyr" src="assets/project-taimyr.jpg" alt="" loading="lazy">
+            </figure>
+          </div>
+          <div class="project-footer"><p><strong data-number-fade>200+</strong><span>проектов агентства<br>за 10 лет</span></p><a href="https://arnorilsk.ru/proektyi/">Смотреть все проекты <span class="icon-button"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></span></a></div>
+        </section>
+
+        <section class="city section-space" id="city" aria-label="Фотографии Норильска" data-search="Норильск" data-search-title="Центральная улица Норильска">
+          <figure class="city-frame">
+            <div class="media-layer" data-parallax><img src="assets/b156e.png" alt="Центральная улица Норильска с высоты" loading="lazy"></div>
+            <figcaption><p class="mono" data-coordinate-count>Норильск · <span class="visually-hidden">69°20′ с. ш. · 88°13′ в. д.</span><span aria-hidden="true"><span data-coordinate-value>69</span>°<span data-coordinate-value>20</span>′ с. ш. · <span data-coordinate-value>88</span>°<span data-coordinate-value>13</span>′ в. д.</span> · <span data-number-fade>2016—2026</span></p><h2>Центральная улица<br>Норильска</h2></figcaption>
+          </figure>
+          <div class="pager wrap" aria-label="Галерея Норильска" data-pager="city">
+            <button class="icon-button" type="button" data-step="-1" aria-label="Предыдущая фотография"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-left"></use></svg></button>
+            <button class="icon-button" type="button" data-step="1" aria-label="Следующая фотография"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-right"></use></svg></button>
+            <output class="mono" aria-live="polite">01 / 04</output>
+          </div>
+        </section>
+
+        <section class="collection wrap section-space" id="events" data-collection aria-labelledby="events-title" data-search="Раздел" data-node-id="2275:9140">
+          <div class="section-head" data-reveal><h2 class="section-title" id="events-title">Мероприятия</h2><a class="icon-button" href="https://arnorilsk.ru/novosti-i-anonsyi/" aria-label="Анонсы на сайте АРН"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></a></div>
+          <div class="collection-tools">
+            <div class="filters" aria-label="Темы мероприятий">
+              <button type="button" aria-pressed="true" data-filter="all">Все</button><button type="button" aria-pressed="false" data-filter="education">Обучение и команды</button><button type="button" aria-pressed="false" data-filter="culture">События и культура</button><button type="button" aria-pressed="false" data-filter="city">Развитие инфраструктуры</button><button type="button" aria-pressed="false" data-filter="strategy">Планы и стратегии</button>
+            </div>
+            <label class="free-filter"><input type="checkbox" data-free-filter> Только бесплатные</label>
+          </div>
+          <div class="card-grid">
+            <article class="event-card" id="event-diagnostics" data-card data-category="education" data-free="true" data-search="Мероприятия" data-reveal>
+              <p class="mono card-meta">Обучение и команды · Фестиваль</p>
+              <figure class="event-image"><img src="assets/609d8.png" alt="Заметки участников деловой встречи" loading="lazy"><time data-number-fade>20.03</time></figure>
+              <p class="event-hour">18:00 – 19:30</p><h3>Диагностика и ускорение бизнес-проектов</h3>
+              <p class="venue"><svg class="ui-icon" aria-hidden="true"><use href="#ph-map-pin"></use></svg>Креативное пространство АРН</p>
+              <a class="event-status free" href="https://arnorilsk.timepad.ru/">Бесплатно</a>
+            </article>
+            <article class="event-card" id="event-sun" data-card data-category="culture" data-free="false" data-search="Мероприятия" data-reveal>
+              <p class="mono card-meta">События и культура · Фестиваль</p>
+              <figure class="event-image"><img src="assets/69ea3.png" alt="Горный пейзаж под розовым небом" loading="lazy"><time data-number-fade>12.02</time></figure>
+              <p class="event-hour">11:30 – 14:00</p><h3>Солнце 0202: три весны в Норильске</h3>
+              <p class="venue"><svg class="ui-icon" aria-hidden="true"><use href="#ph-map-pin"></use></svg>Креативное пространство АРН</p>
+              <a class="event-status paid" href="https://arnorilsk.timepad.ru/">Билет 500 ₽</a>
+            </article>
+            <article class="event-card" id="event-law" data-card data-category="city" data-free="false" data-search="Мероприятия" data-reveal>
+              <p class="mono card-meta">Развитие инфраструктуры · Бизнес-тренинг</p>
+              <figure class="event-image"><img src="assets/3fc71.png" alt="Спикер у доски" loading="lazy"><time data-number-fade>22.01</time></figure>
+              <p class="event-hour">18:00 – 19:30</p><h3>«Юридические аспекты бизнеса» в новом формате Smart Talk</h3>
+              <p class="venue"><svg class="ui-icon" aria-hidden="true"><use href="#ph-map-pin"></use></svg>Креативное пространство АРН</p>
+              <span class="event-status closed">Регистрация завершена</span>
+            </article>
+          </div>
+          <p class="collection-empty" role="status" hidden>По этой теме пока нет мероприятий.</p>
+          <div class="pager" aria-label="Карточки мероприятий" data-collection-pager>
+            <button class="icon-button" type="button" data-step="-1" aria-label="Предыдущее мероприятие"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-left"></use></svg></button>
+            <button class="icon-button" type="button" data-step="1" aria-label="Следующее мероприятие"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-right"></use></svg></button>
+            <output class="mono">01 / 03</output>
+          </div>
+        </section>
+
+        <section class="collection wrap section-space" id="news" data-collection aria-labelledby="news-title" data-search="Раздел" data-node-id="2275:9164">
+          <div class="section-head" data-reveal><h2 class="section-title" id="news-title">Новости</h2><a class="icon-button" href="https://arnorilsk.ru/novosti-i-anonsyi/novosti/" aria-label="Все новости АРН"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></a></div>
+          <div class="collection-tools">
+            <div class="filters" aria-label="Темы новостей">
+              <button type="button" aria-pressed="true" data-filter="all">Все</button><button type="button" aria-pressed="false" data-filter="education">Обучение и команды</button><button type="button" aria-pressed="false" data-filter="culture">События и культура</button><button type="button" aria-pressed="false" data-filter="city">Развитие инфраструктуры</button><button type="button" aria-pressed="false" data-filter="strategy">Планы и стратегии</button>
+            </div>
+          </div>
+          <div class="card-grid">
+            <article class="news-card" id="news-freedive" data-card data-category="culture" data-search="Новости" data-reveal>
+              <div class="mono card-meta"><span>События и культура</span><time data-number-fade>20 марта</time></div>
+              <figure class="news-image"><img src="assets/58a9a.png" alt="Фридайвер под водой" loading="lazy"><span aria-hidden="true">С</span></figure>
+              <h3>Слушать себя под водой: итоги третьих соревнований по фридайвингу в Норильске</h3>
+              <p>В бассейне дворца спорта «Арктика» в Норильске прошли третьи соревнования «Фридайвинг за 69-й параллелью».</p>
+              <button class="read-link mono" type="button" data-read>Читать <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></button>
+            </article>
+            <article class="news-card" id="news-business" data-card data-category="education" data-search="Новости" data-reveal>
+              <div class="mono card-meta"><span>Обучение и команды</span><time data-number-fade>5 февраля</time></div>
+              <figure class="news-image"><img src="assets/248c6.png" alt="Спикер на рабочей встрече" loading="lazy"><span aria-hidden="true">М</span></figure>
+              <h3>АРН приглашает на рабочую встречу «Меры поддержки для арктического бизнеса»</h3>
+              <p>Приглашаем участников туристско-рекреационного кластера «Арктический» и представителей малого и среднего бизнеса Норильска на рабочую встречу.</p>
+              <button class="read-link mono" type="button" data-read>Читать <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></button>
+            </article>
+            <article class="news-card" id="news-tourism" data-card data-category="education" data-search="Новости" data-reveal>
+              <div class="mono card-meta"><span>Обучение и команды</span><time data-number-fade>24 декабря 2025</time></div>
+              <figure class="news-image"><img src="assets/98147.png" alt="Занятие для туроператоров" loading="lazy"><span aria-hidden="true">И</span></figure>
+              <h3>«Архитекторы туризма»: построено за месяц. Итоги курса для туроператоров</h3>
+              <p>В Норильске стало ещё больше качественных и интересных предложений для туристов — это результат интенсива «Архитекторы туризма».</p>
+              <button class="read-link mono" type="button" data-read>Читать <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></button>
+            </article>
+          </div>
+          <p class="collection-empty" role="status" hidden>По этой теме пока нет новостей.</p>
+          <div class="pager" aria-label="Карточки новостей" data-collection-pager>
+            <button class="icon-button" type="button" data-step="-1" aria-label="Предыдущая новость"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-left"></use></svg></button>
+            <button class="icon-button" type="button" data-step="1" aria-label="Следующая новость"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-right"></use></svg></button>
+            <output class="mono">01 / 03</output>
+          </div>
+        </section>
+
+        <section class="idea-section section-space" id="idea" aria-labelledby="idea-title" data-search="Раздел" data-search-title="Предложить идею">
+          <figure class="idea-photo"><div class="media-layer" data-parallax><img src="assets/d6ef2.png" alt="Вид на скейт-парк и жилые дома Норильска" loading="lazy"></div></figure>
+          <div class="idea-content">
+            <div class="idea-marquee" aria-hidden="true"><div data-motion-track>Предложить идею <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg> Предложить идею <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg> Предложить идею</div></div>
+            <div class="idea-columns wrap">
+              <div class="idea-copy" data-reveal>
+                <div class="director"><img src="assets/ec932.png" alt="Максим Миронов" width="95" height="95" loading="lazy"><span class="mono">Директор АРН</span></div>
+                <h2 id="idea-title">У вас есть мысли,<br>как сделать наш<br>город лучше?</h2>
+                <p>Мы будем рады услышать ваши предложения. Делитесь своими идеями и становитесь частью сообщества перемен!</p>
+              </div>
+              <div class="idea-form-slot" data-reveal>
+                <form class="idea-form" id="idea-form">
+                  <fieldset><legend class="mono">Направление</legend><div class="idea-topics">
+                    <label><input type="radio" name="topic" value="Обучение и команды"><span>Обучение и команды</span></label>
+                    <label><input type="radio" name="topic" value="События и культура"><span>События и культура</span></label>
+                    <label><input type="radio" name="topic" value="Развитие инфраструктуры" checked><span>Развитие инфраструктуры</span></label>
+                    <label><input type="radio" name="topic" value="Планы и стратегии"><span>Планы и стратегии</span></label>
+                  </div></fieldset>
+                  <label class="idea-field"><span class="mono">Ваша идея</span><textarea name="idea" placeholder="Опишите идею в двух-трёх предложениях" required></textarea></label>
+                  <div class="idea-submit"><button class="button accent" type="submit">Предложить идею</button><p>Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p></div>
+                </form>
+                <div id="idea-ready" class="idea-ready" hidden>
+                  <h3 tabindex="-1">Черновик готов</h3><p>Откройте почту, чтобы отправить предложение в АРН.</p>
+                  <div><a class="button accent" id="idea-email" href="mailto:priemnaya@arnorilsk.ru">Открыть почту</a><button class="button outline" id="idea-back" type="button">Вернуться к форме</button></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer wrap" id="contacts" aria-labelledby="contacts-title" data-search="Раздел" data-node-id="2275:9214">
+        <h2 class="section-title" id="contacts-title" data-reveal>Контакты</h2>
+        <a class="footer-logo" href="#top" aria-label="АРН — наверх" data-node-id="2305:10607">
+          <span class="footer-logo-art" aria-hidden="true">
+            <img class="footer-arctic-mark" src="assets/footer-arctic-mark.svg" alt="" width="389" height="389" data-node-id="2275:9220">
+            <img class="footer-wordmark wordmark" src="assets/footer-arn-wordmark.svg" alt="" width="930" height="281" data-node-id="2275:9221">
+          </span>
+        </a>
+        <div class="footer-columns" data-reveal>
+          <address class="footer-address">
+            <a class="footer-phone" href="tel:+73919465001">8 (3919) 46-50-01</a>
+            <a class="footer-email" href="mailto:priemnaya@arnorilsk.ru">priemnaya@arnorilsk.ru</a>
+            <p>г. Норильск, пр-т Ленинский, 1, пом. 670, 3-й этаж</p>
+          </address>
+          <div class="footer-links">
+            <div class="footer-navs">
+              <nav aria-label="Разделы сайта">
+                <a href="#directions" data-open-directions aria-haspopup="dialog" aria-controls="directions-dialog">Направления <svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-down"></use></svg></a>
+                <a href="#projects">Проекты</a>
+                <a href="#about">О нас</a>
+              </nav>
+              <nav aria-label="Информация АРН">
+                <a href="#news">Новости и события</a>
+                <a href="https://arnorilsk.ru/materialyi/">Информация <svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-down"></use></svg></a>
+                <a href="#contacts">Контакты</a>
+              </nav>
+            </div>
+            <div class="socials">
+              <a class="icon-button mono" href="https://t.me/arnorilsk" aria-label="АРН в Telegram">TG</a>
+              <a class="icon-button mono" href="https://vk.com/arnorilskpublic" aria-label="АРН ВКонтакте">VK</a>
+              <a class="icon-button mono" href="https://ok.ru/arnorilskpublic" aria-label="АРН в Одноклассниках">OK</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom" data-reveal="top 98%">
+          <p>© АНО «АРН» Все права защищены. г. Норильск.</p>
+          <nav aria-label="Правовые документы">
+            <a href="https://arnorilsk.ru/materialyi/">Политика конфиденциальности</a>
+            <a href="https://arnorilsk.ru/materialyi/">Согласие на рассылку</a>
+            <a href="https://arnorilsk.ru/materialyi/">Согласие на обработку персональных данных</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <dialog class="fullscreen-dialog" id="search-dialog" aria-labelledby="search-title">
+    <div class="fullscreen-shell">
+      <div class="fullscreen-head">
+        <span class="brand fullscreen-brand"><img src="assets/2afd9.svg" alt=""><img class="wordmark" src="assets/b36ee.svg" alt="АРН"></span>
+        <button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Закрыть поиск"><svg class="ui-icon" aria-hidden="true"><use href="#ph-x"></use></svg></button>
+      </div>
+      <div class="fullscreen-content search-content wrap">
+        <h2 id="search-title" class="mono">Поиск по сайту</h2>
+        <form class="search-form" role="search">
+          <label class="visually-hidden" for="site-query">Введите запрос</label>
+          <input id="site-query" type="search" placeholder="Что ищем?" autocomplete="off">
+          <button class="icon-button" aria-label="Перейти к первому результату" type="submit"><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button>
+        </form>
+        <div class="search-suggestions"><p class="mono">Быстрый поиск</p><div><button type="button" data-query="Скейт-парк">Скейт-парк</button><button type="button" data-query="Бизнес">Бизнес</button><button type="button" data-query="Мероприятия">Мероприятия</button><button type="button" data-query="Контакты">Контакты</button></div></div>
+        <p class="search-status mono" role="status" hidden></p>
+        <ul class="search-results"></ul>
+      </div>
+    </div>
+  </dialog>
+  <template id="search-result"><li><a class="search-result"><span class="search-result-kind mono"></span><strong></strong><span class="search-result-summary"></span><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></a></li></template>
+
+  <dialog class="fullscreen-dialog" id="directions-dialog" aria-labelledby="directions-title">
+    <div class="fullscreen-shell">
+      <div class="fullscreen-head">
+        <span class="brand fullscreen-brand"><img src="assets/2afd9.svg" alt=""><img class="wordmark" src="assets/b36ee.svg" alt="АРН"></span>
+        <button class="dialog-close icon-button" type="button" data-close-dialog aria-label="Закрыть направления"><svg class="ui-icon" aria-hidden="true"><use href="#ph-x"></use></svg></button>
+      </div>
+      <div class="fullscreen-content wrap">
+        <h2 class="directions-title" id="directions-title" tabindex="-1">Направления</h2>
+        <ul class="directions-links"></ul>
+      </div>
+    </div>
+  </dialog>
+  <template id="direction-link">
+    <li><a class="direction-link"><strong></strong><span class="direction-link-summary"></span><svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></a></li>
+  </template>
+
+  <dialog class="team-profile" id="team-profile" aria-labelledby="team-profile-name">
+    <button class="team-profile-close dialog-close icon-button" data-close-dialog type="button" aria-label="Закрыть профиль"><svg class="ui-icon" aria-hidden="true"><use href="#ph-x"></use></svg></button>
+    <div class="team-profile-header">
+      <div class="team-profile-portrait"><img alt=""></div>
+      <div class="team-profile-identity">
+        <h2 id="team-profile-name" tabindex="-1"></h2>
+        <p class="team-profile-role mono"></p>
+        <section class="team-profile-contacts" aria-labelledby="team-profile-contacts-title">
+          <h3 class="mono" id="team-profile-contacts-title">Контакты АРН</h3>
+          <address class="team-profile-contact-links">
+            <a href="tel:+73919465001">8 (3919) 46-50-01</a>
+            <a href="mailto:priemnaya@arnorilsk.ru">priemnaya@arnorilsk.ru</a>
+          </address>
+          <nav class="team-profile-contact-links" aria-label="Соцсети АРН">
+            <a href="https://t.me/arnorilsk">Telegram</a>
+            <a href="https://vk.com/arnorilskpublic">ВКонтакте</a>
+            <a href="https://ok.ru/arnorilskpublic">Одноклассники</a>
+          </nav>
+        </section>
+      </div>
+    </div>
+    <div class="team-profile-body">
+      <p class="team-profile-lead"></p>
+      <p class="team-profile-detail"></p>
+      <section class="team-profile-related" aria-labelledby="team-profile-related-title">
+        <h3 class="mono" id="team-profile-related-title">Проекты и публикации</h3>
+        <ul class="team-profile-related-list" role="list"></ul>
+      </section>
+    </div>
+  </dialog>
+  <template id="team-profile-related-item">
+    <li>
+      <a class="team-profile-related-link">
+        <span class="team-profile-related-kind mono"></span>
+        <span class="team-profile-related-name"></span>
+        <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg>
+      </a>
+    </li>
+  </template>
+
+  <dialog class="article-dialog" id="article-dialog" aria-labelledby="article-dialog-title">
+    <button class="icon-button" data-close-dialog type="button" aria-label="Закрыть подробности"><svg class="ui-icon" aria-hidden="true"><use href="#ph-x"></use></svg></button>
+    <p class="mono"></p><h2 id="article-dialog-title"></h2><img alt=""><p class="article-text"></p>
+    <a class="button outline" href="https://arnorilsk.ru/novosti-i-anonsyi/novosti/">Новости на сайте АРН</a>
+  </dialog>
+</body>
+</html>
