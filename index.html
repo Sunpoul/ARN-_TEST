@@ -1,15 +1,27 @@
 <!doctype html>
-<html lang="ru">
+<html lang="ru" prefix="og: https://ogp.me/ns#">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#073a47">
   <meta name="description" content="Проекты, команда и мероприятия Агентства развития Норильска.">
   <title>Агентство развития Норильска — Визионеры Арктики</title>
+  <link rel="canonical" href="https://sunpoul.github.io/ARN-_TEST/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Агентство развития Норильска">
+  <meta property="og:title" content="Агентство развития Норильска — Визионеры Арктики">
+  <meta property="og:description" content="Развиваем общественные пространства, поддерживаем местный бизнес и запускаем городские проекты.">
+  <meta property="og:url" content="https://sunpoul.github.io/ARN-_TEST/">
+  <meta property="og:image" content="https://sunpoul.github.io/ARN-_TEST/assets/social-preview.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="801">
+  <meta property="og:image:alt" content="Главный экран сайта АРН на фоне панорамы Норильска">
   <link rel="icon" href="assets/2afd9.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="site.css?v=1994ab2">
+  <link rel="stylesheet" href="site.css?v=full-hero">
   <link rel="preload" as="image" href="assets/hero-panorama.png">
   <script>
     if (performance.getEntriesByType('navigation')[0]?.type === 'reload') {
@@ -25,7 +37,7 @@
   <script defer src="vendor/ScrollSmoother.min.js"></script>
   <script defer src="vendor/ScrambleTextPlugin.min.js"></script>
   <script defer src="scroll-motion.js"></script>
-  <script defer src="site.js"></script>
+  <script defer src="site.js?v=full-hero"></script>
 </head>
 <body>
   <!-- Phosphor Icons 2.1.1 • MIT, see vendor/phosphor-LICENSE -->
@@ -92,7 +104,7 @@
             </div>
             <a class="hero-about mono" href="#about">Об агентстве</a>
           </div>
-          <figure class="hero-photo" id="hero-viewer">
+          <figure class="hero-photo" id="hero-viewer" aria-hidden="true">
             <img src="assets/hero-panorama.png" alt="Панорама центра Норильска" fetchpriority="high">
             <img class="hero-photo-night" src="assets/hero-panorama-night.png" alt="" decoding="async">
           </figure>
@@ -115,14 +127,48 @@
           </div>
         </div>
 
-        <section class="about wrap" id="about" data-search="Об агентстве" aria-labelledby="about-title" data-node-id="2275:8961">
-          <div class="stats">
-            <article class="stat" data-reveal><div class="stat-top"><p class="mono">01</p><a href="#projects" aria-label="Смотреть реализованные проекты"><span class="stat-action">Смотреть <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></span></a></div><div><p class="stat-number" data-number-fade>200+</p><p>Реализованных проектов</p></div></article>
-            <article class="stat" data-reveal><div class="stat-top"><p class="mono">02</p><a href="#skate" aria-label="Смотреть общественные пространства"><span class="stat-action">Смотреть <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></span></a></div><div><p class="stat-number" data-number-fade>117</p><p>Общественных пространств</p></div></article>
-            <article class="stat" data-reveal><div class="stat-top"><p class="mono">03</p><a href="#directions-education" aria-label="Смотреть образовательные программы"><span class="stat-action">Смотреть <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></span></a></div><div><p class="stat-number" data-number-fade>54</p><p>Образовательные программы</p></div></article>
-            <article class="stat" data-reveal><div class="stat-top"><p class="mono">04</p><a href="#directions-city" aria-label="Смотреть инфраструктурные проекты"><span class="stat-action">Смотреть <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></span></a></div><div><p class="stat-number" data-number-fade>80</p><p>Инфраструктурных проектов</p></div></article>
+        <section class="about" id="about" data-search="Об агентстве" aria-labelledby="about-title" data-node-id="2275:8961">
+          <div class="stats wrap">
+            <button class="stat" type="button" data-reveal>
+              <span class="stat-index mono" aria-hidden="true">01</span>
+              <span><span class="stat-number" data-number-fade>200+</span><span class="stat-label">Реализованных проектов</span></span>
+            </button>
+            <button class="stat" type="button" data-reveal>
+              <span class="stat-index mono" aria-hidden="true">02</span>
+              <span><span class="stat-number" data-number-fade>117</span><span class="stat-label">Общественных пространств</span></span>
+            </button>
+            <button class="stat" type="button" data-reveal>
+              <span class="stat-index mono" aria-hidden="true">03</span>
+              <span><span class="stat-number" data-number-fade>54</span><span class="stat-label">Образовательные программы</span></span>
+            </button>
+            <button class="stat" type="button" data-reveal>
+              <span class="stat-index mono" aria-hidden="true">04</span>
+              <span><span class="stat-number" data-number-fade>80</span><span class="stat-label">Инфраструктурных проектов</span></span>
+            </button>
           </div>
-          <div class="mission">
+
+          <section class="timeline wrap" id="skate" data-year="2025" aria-label="Хронология городских проектов" data-search="Хронология" data-search-title="Скейт-парк" data-search-extra="Молодёжный центр 2025 обновление площадки">
+            <div class="media-layer" data-parallax><img class="timeline-photo" src="assets/a8d0e.png" alt="Скейт-парк у Молодёжного центра Норильска"></div>
+            <div class="timeline-grid" aria-hidden="true"><span></span></div>
+            <div class="timeline-coords" data-coordinate-count aria-hidden="true"><span><span data-coordinate-value>69</span>°<span data-coordinate-value>20</span>′<small>С. Ш.</small></span><span><span data-coordinate-value>88</span>°<span data-coordinate-value>13</span>′<small>В. Д.</small></span></div>
+            <div class="timeline-card" data-reveal aria-live="polite">
+              <p class="mono timeline-kicker">Обновление · 2025</p>
+              <h2 class="timeline-title">Скейт-парк</h2>
+              <p class="timeline-summary">В 2025 году АРН обновило скейт-парк у Молодёжного центра. Площадку отреставрировали и оформили в цветах городского бренда Норильска.</p>
+              <a class="button outline timeline-link" href="https://news.sgnorilsk.ru/2025/08/11/v-norilske-proshel-festival-aktivnyh-vidov-sporta/">Подробнее о проекте</a>
+            </div>
+            <div class="timeline-controls">
+              <p class="mono">Хронология · листайте годы</p>
+              <div class="year-buttons" aria-label="Год">
+                <button type="button" data-year="2016" aria-pressed="false">2016</button>
+                <button type="button" data-year="2018" aria-pressed="false">2018</button>
+                <button type="button" data-year="2020" aria-pressed="false">2020</button>
+                <button type="button" data-year="2025" aria-pressed="true">2025</button>
+              </div>
+            </div>
+          </section>
+
+          <div class="mission wrap">
             <h2 id="about-title" data-reveal>Создаём комфортную среду для жизни и отдыха в Норильске</h2>
             <img src="assets/ce052.svg" alt="" data-reveal>
             <p data-reveal>С 2016 года мы создаём новые стандарты формирования комфортной городской среды, отвечая на актуальные запросы общества и уважая традиции. Объединяем усилия жителей, власти и бизнеса, чтобы превращать идеи в реальные изменения.</p>
@@ -130,51 +176,28 @@
           </div>
         </section>
 
-        <section class="timeline" id="skate" data-year="2025" aria-label="Хронология городских проектов" data-search="Хронология" data-search-title="Скейт-парк" data-search-extra="Молодёжный центр 2025 обновление площадки">
-          <div class="media-layer" data-parallax><img class="timeline-photo" src="assets/a8d0e.png" alt="Скейт-парк у Молодёжного центра Норильска"></div>
-          <div class="timeline-grid" aria-hidden="true"><span></span></div>
-          <div class="timeline-coords" data-coordinate-count aria-hidden="true"><span><span data-coordinate-value>69</span>°<span data-coordinate-value>20</span>′<small>С. Ш.</small></span><span><span data-coordinate-value>88</span>°<span data-coordinate-value>13</span>′<small>В. Д.</small></span></div>
-          <div class="timeline-card" data-reveal aria-live="polite">
-            <p class="mono timeline-kicker">Обновление · 2025</p>
-            <h2 class="timeline-title">Скейт-парк</h2>
-            <p class="timeline-summary">В 2025 году АРН обновило скейт-парк у Молодёжного центра. Площадку отреставрировали и оформили в цветах городского бренда Норильска.</p>
-            <a class="button outline timeline-link" href="https://news.sgnorilsk.ru/2025/08/11/v-norilske-proshel-festival-aktivnyh-vidov-sporta/">Подробнее о проекте</a>
-          </div>
-          <div class="timeline-controls">
-            <p class="mono">Хронология · листайте годы</p>
-            <div class="year-buttons" aria-label="Год">
-              <button type="button" data-year="2016" aria-pressed="false">2016</button>
-              <button type="button" data-year="2018" aria-pressed="false">2018</button>
-              <button type="button" data-year="2020" aria-pressed="false">2020</button>
-              <button type="button" data-year="2025" aria-pressed="true">2025</button>
-            </div>
-          </div>
-        </section>
-
         <section class="team wrap" id="team" aria-labelledby="team-title" data-search="Раздел" data-node-id="2275:9020">
-          <h2 class="section-title" id="team-title" data-reveal>Команда</h2>
+          <div class="section-head team-head" data-reveal>
+            <h2 class="section-title" id="team-title">Команда</h2>
+            <a class="button outline team-about" href="https://arnorilsk.ru/ob-agentstve/">Об агентстве</a>
+          </div>
           <div class="team-grid" id="team-grid">
-            <article class="team-card is-current" id="maxim-mironov" data-search="Команда" data-reveal>
+            <article class="team-card" id="maxim-mironov" data-search="Команда" data-reveal>
               <div class="portrait"><img src="assets/14738.png" alt="Максим Миронов" loading="lazy" width="800" height="1000"></div>
-              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Максим Миронов<svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button></h3><p class="mono">Директор АРН</p>
+              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Максим Миронов</button></h3><p class="mono">Директор АРН</p>
             </article>
             <article class="team-card" id="yulia-gribanova" data-search="Команда" data-reveal>
               <div class="portrait"><img src="assets/9a012.png" alt="Юлия Грибанова" loading="lazy" width="800" height="1000"></div>
-              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Юлия Грибанова<svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button></h3><p class="mono">Заместитель директора по инвестициям</p>
+              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Юлия Грибанова</button></h3><p class="mono">Заместитель директора по инвестициям</p>
             </article>
             <article class="team-card" id="roman-kulyan" data-search="Команда" data-reveal>
               <div class="portrait"><img src="assets/415b7.png" alt="Роман Кулян" loading="lazy" width="800" height="1000"></div>
-              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Роман Кулян<svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button></h3><p class="mono">Первый заместитель директора АРН</p>
+              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Роман Кулян</button></h3><p class="mono">Первый заместитель директора АРН</p>
             </article>
             <article class="team-card" id="viktoria-chulanova" data-search="Команда" data-reveal>
               <div class="portrait"><img src="assets/c06c7.png" alt="Виктория Чуланова" loading="lazy" width="800" height="1000"></div>
-              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Виктория Чуланова<svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-up-right"></use></svg></button></h3><p class="mono">Заместитель директора</p>
+              <h3><button class="team-profile-open" type="button" aria-haspopup="dialog" aria-controls="team-profile">Виктория Чуланова</button></h3><p class="mono">Заместитель директора</p>
             </article>
-          </div>
-          <div class="pager" aria-label="Просмотр команды" data-pager="team">
-            <button class="icon-button" type="button" data-step="-1" aria-label="Предыдущий сотрудник"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-left"></use></svg></button>
-            <button class="icon-button" type="button" data-step="1" aria-label="Следующий сотрудник"><svg class="ui-icon" aria-hidden="true"><use href="#ph-caret-right"></use></svg></button>
-            <output class="mono">01 / 04</output>
           </div>
         </section>
 
@@ -299,7 +322,7 @@
             </article>
             <article class="news-card" id="news-tourism" data-card data-category="education" data-search="Новости" data-reveal>
               <div class="mono card-meta"><span>Обучение и команды</span><time data-number-fade>24 декабря 2025</time></div>
-              <figure class="news-image"><img src="assets/98147.png" alt="Занятие для туроператоров" loading="lazy"><span aria-hidden="true">И</span></figure>
+              <figure class="news-image"><img src="assets/98147.png" alt="Занятие для туроператоров" loading="lazy"><span aria-hidden="true">А</span></figure>
               <h3>«Архитекторы туризма»: построено за месяц. Итоги курса для туроператоров</h3>
               <p>В Норильске стало ещё больше качественных и интересных предложений для туристов — это результат интенсива «Архитекторы туризма».</p>
               <button class="read-link mono" type="button" data-read>Читать <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg></button>
@@ -316,7 +339,18 @@
         <section class="idea-section section-space" id="idea" aria-labelledby="idea-title" data-search="Раздел" data-search-title="Предложить идею">
           <figure class="idea-photo"><div class="media-layer" data-parallax><img src="assets/d6ef2.png" alt="Вид на скейт-парк и жилые дома Норильска" loading="lazy"></div></figure>
           <div class="idea-content">
-            <div class="idea-marquee" aria-hidden="true"><div data-motion-track>Предложить идею <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg> Предложить идею <svg class="ui-icon" aria-hidden="true"><use href="#ph-arrow-right"></use></svg> Предложить идею</div></div>
+            <div class="idea-marquee" aria-hidden="true">
+              <div class="idea-marquee-track">
+                <div class="idea-marquee-group">
+                  <span>Предложить идею</span><svg class="ui-icon"><use href="#ph-arrow-right"></use></svg>
+                  <span>Предложить идею</span><svg class="ui-icon"><use href="#ph-arrow-right"></use></svg>
+                </div>
+                <div class="idea-marquee-group">
+                  <span>Предложить идею</span><svg class="ui-icon"><use href="#ph-arrow-right"></use></svg>
+                  <span>Предложить идею</span><svg class="ui-icon"><use href="#ph-arrow-right"></use></svg>
+                </div>
+              </div>
+            </div>
             <div class="idea-columns wrap">
               <div class="idea-copy" data-reveal>
                 <div class="director"><img src="assets/ec932.png" alt="Максим Миронов" width="95" height="95" loading="lazy"><span class="mono">Директор АРН</span></div>

@@ -22,7 +22,7 @@
   function navigateTo(target, { highlight = false, updateHash = true, instant = false } = {}) {
     if (target.hidden) collections.get(target.closest('[data-collection]'))?.reset();
     if (target.id === 'skate') selectYear('2025');
-    if (target.closest('.team-grid')) selectPerson(teamCards.indexOf(target));
+    if (target.matches('.team-card')) scrollToTeamCard(target);
     const direction = target.hasAttribute('data-direction');
     if (direction && target.getAttribute('aria-selected') !== 'true') selectDirection(target);
 
@@ -75,7 +75,7 @@
   const hero = $('.hero');
   const heroPlay = $('.hero-play');
   const heroPhoto = $('#hero-viewer');
-  const heroScrollDistance = 420;
+  const heroScrollDistance = 480;
   const reloaded = performance.getEntriesByType('navigation')[0]?.type === 'reload';
   let photoExpanded = false;
   let heroIntroPending = Boolean(window.gsap && window.ScrollTrigger) && !reduced.matches && (reloaded ||
@@ -94,6 +94,7 @@
   function setPhotoExpanded(expanded) {
     photoExpanded = expanded;
     hero.classList.toggle('is-photo-expanded', expanded);
+    heroPhoto.setAttribute('aria-hidden', String(!expanded));
     heroPlay.setAttribute('aria-expanded', String(expanded));
     heroPlay.setAttribute('aria-label', expanded ? 'Закрыть фотографию' : 'Открыть фотографию на весь экран');
   }
@@ -127,17 +128,24 @@
 
     hero.style.setProperty('--hero-intro-progress', 0);
     hero.classList.add('is-scroll-intro');
+    const intro = { progress: 0 };
+    const animation = window.gsap.to(intro, {
+      progress: 1,
+      ease: 'sine.inOut',
+      onUpdate: () => {
+        hero.style.setProperty('--hero-intro-progress', intro.progress);
+        const expanded = intro.progress < 1;
+        if (photoExpanded !== expanded) setPhotoExpanded(expanded);
+      },
+    });
     heroIntroScroll = window.ScrollTrigger.create({
+      animation,
       trigger: hero,
       pin: true,
       start: 0,
       end: `+=${heroScrollDistance}`,
+      scrub: 0.24,
       refreshPriority: 1,
-      onUpdate: ({ progress }) => {
-        const eased = progress * progress * (3 - 2 * progress);
-        hero.style.setProperty('--hero-intro-progress', eased);
-        if (photoExpanded !== (progress < 1)) setPhotoExpanded(progress < 1);
-      },
     });
     arnMotion.refresh();
   }
@@ -145,14 +153,9 @@
   startHeroMotion();
 
   heroPlay.addEventListener('click', () => {
+    const expanded = !photoExpanded;
     cancelHeroIntro();
-    setPhotoExpanded(!photoExpanded);
-  });
-  heroPhoto.addEventListener('click', () => {
-    if (photoExpanded) return;
-    cancelHeroIntro();
-    setPhotoExpanded(true);
-    heroPlay.focus({ preventScroll: true });
+    setPhotoExpanded(expanded);
   });
   document.addEventListener('keydown', event => {
     if (event.key !== 'Escape' || !photoExpanded || $('dialog[open]') || event.defaultPrevented) return;
@@ -195,21 +198,11 @@
 
   const teamGrid = $('.team-grid');
   const teamCards = $$('.team-card', teamGrid);
-  const teamPager = $('[data-pager="team"]');
-  let personIndex = 0;
-  function selectPerson(index) {
-    if (index < 0) return;
-    personIndex = index;
-    teamCards.forEach((card, i) => card.classList.toggle('is-current', i === index));
-    $('output', teamPager).textContent = pagerValue(index + 1, teamCards.length);
-    if (teamGrid.scrollWidth > teamGrid.clientWidth) {
-      const offset = teamCards[index].getBoundingClientRect().left - teamGrid.getBoundingClientRect().left + teamGrid.scrollLeft;
-      teamGrid.scrollTo({ left: offset, behavior: reduced.matches ? 'instant' : 'smooth' });
-    }
+  function scrollToTeamCard(card) {
+    if (teamGrid.scrollWidth <= teamGrid.clientWidth) return;
+    const offset = card.getBoundingClientRect().left - teamGrid.getBoundingClientRect().left + teamGrid.scrollLeft;
+    teamGrid.scrollTo({ left: offset, behavior: reduced.matches ? 'instant' : 'smooth' });
   }
-  $$('[data-step]', teamPager).forEach(button => button.addEventListener('click', () => {
-    selectPerson((personIndex + Number(button.dataset.step) + teamCards.length) % teamCards.length);
-  }));
 
   const directionTabs = $$('[data-direction]');
   const directionPanel = $('#direction-panel');
@@ -606,10 +599,12 @@
   const searchOpener = $('.search-open');
   const normalize = value => value.toLocaleLowerCase('ru').replaceAll('ё', 'е').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
   const searchEntries = $$('[data-search][id]').map(node => {
-    const heading = $('h1,h2,h3', node)?.textContent.trim().replace(/\s+/gu, ' ');
+    const content = node.id === 'about' ? $('.mission', node) : node;
+    const stats = node.id === 'about' ? $('.stats', node).textContent : '';
+    const heading = $('h1,h2,h3', content)?.textContent.trim().replace(/\s+/gu, ' ');
     const title = node.dataset.searchTitle || heading || node.dataset.search;
-    const description = ($('p:not(.mono)', node) || $('p', node))?.textContent.trim() || '';
-    const body = node.dataset.search === 'Раздел' && node.id !== 'contacts' ? '' : node.textContent.trim();
+    const description = ($('p:not(.mono)', content) || $('p', content))?.textContent.trim() || '';
+    const body = node.dataset.search === 'Раздел' && node.id !== 'contacts' ? '' : `${stats} ${content.textContent}`.trim();
     return {
       node, title, description, kind: node.dataset.search,
       titleKey: normalize(title), bodyKey: normalize([node.dataset.search, description, body, node.dataset.searchExtra || ''].join(' ')),
